@@ -1,0 +1,122 @@
+{
+  "name": "dohexthewater.entry.wisps",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:glowstone_dust",
+  "sortnum": 14,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "dohexthewater.page.wisps.0"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "dohexthewater.page.wisps.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:wisp/summon/projectile",
+      "anchor": "dohexthewater:wisp/summon/projectile",
+      "input": "[pattern], vec, vec, number",
+      "output": "",
+      "text": "dohexthewater.page.wisps.wisp/summon/projectile.0"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "dohexthewater.page.wisps.wisp/summon/projectile.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:wisp/summon/ticking",
+      "anchor": "dohexthewater:wisp/summon/ticking",
+      "input": "[pattern], vec, number",
+      "output": "",
+      "text": "dohexthewater.page.wisps.wisp/summon/ticking.0"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "dohexthewater.page.wisps.wisp/summon/ticking.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:wisp/media",
+      "anchor": "dohexthewater:wisp/media",
+      "input": "",
+      "output": "number",
+      "text": "dohexthewater.page.wisps.wisp/media"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:wisp/hex",
+      "anchor": "dohexthewater:wisp/hex",
+      "input": "entity",
+      "output": "[pattern]",
+      "text": "dohexthewater.page.wisps.wisp/hex"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:wisp/move_target/set",
+      "anchor": "dohexthewater:wisp/move_target/set",
+      "input": "vec",
+      "output": "",
+      "text": "dohexthewater.page.wisps.wisp/move_target/set"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:wisp/move_target/get",
+      "anchor": "dohexthewater:wisp/move_target/get",
+      "input": "",
+      "output": "vec",
+      "text": "dohexthewater.page.wisps.wisp/move_target/get"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:get_entity/wisp",
+      "anchor": "dohexthewater:get_entity/wisp",
+      "input": "vec",
+      "output": "entity | null",
+      "text": "dohexthewater.page.wisps.get_entity/wisp"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:zone_entity/wisp",
+      "anchor": "dohexthewater:zone_entity/wisp",
+      "input": "vec, num",
+      "output": "[entity]",
+      "text": "dohexthewater.page.wisps.zone_entity/wisp"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:zone_entity/not_wisp",
+      "anchor": "dohexthewater:zone_entity/not_wisp",
+      "input": "vec, num",
+      "output": "[entity]",
+      "text": "dohexthewater.page.wisps.zone_entity/not_wisp"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:wisp/trigger/tick",
+      "anchor": "dohexthewater:wisp/trigger/tick",
+      "input": "number",
+      "output": "",
+      "text": "dohexthewater.page.wisps.wisp/trigger/tick"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:wisp/trigger/comm",
+      "anchor": "dohexthewater:wisp/trigger/comm",
+      "input": "",
+      "output": "",
+      "text": "dohexthewater.page.wisps.wisp/trigger/comm"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:wisp/trigger/move",
+      "anchor": "dohexthewater:wisp/trigger/move",
+      "input": "",
+      "output": "",
+      "text": "dohexthewater.page.wisps.wisp/trigger/move"
+    }
+  ]
+}

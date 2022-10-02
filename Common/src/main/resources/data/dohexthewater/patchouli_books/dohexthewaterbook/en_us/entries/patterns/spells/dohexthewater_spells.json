@@ -1,0 +1,38 @@
+{
+  "name": "dohexthewater.entry.dohexthewater_spell",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:furnace",
+  "sortnum": 10,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:smelt",
+      "anchor": "dohexthewater:smelt",
+      "input": "vec | entity",
+      "output": "",
+      "text": "dohexthewater.page.dohexthewater_spell.smelt.0"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "dohexthewater.page.dohexthewater_spell.smelt.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:freeze",
+      "anchor": "dohexthewater:freeze",
+      "input": "vec",
+      "output": "",
+      "text": "dohexthewater.page.dohexthewater_spell.freeze"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:falling_block",
+      "anchor": "dohexthewater:falling_block",
+      "input": "vec",
+      "output": "",
+      "text": "dohexthewater.page.dohexthewater_spell.falling_block"
+    }
+  ]
+}

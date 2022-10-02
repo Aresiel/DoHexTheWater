@@ -1,0 +1,90 @@
+{
+  "name": "dohexthewater.entry.links",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:string",
+  "sortnum": 18,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "dohexthewater.page.links.0"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "dohexthewater.page.links.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:link/link_entity",
+      "anchor": "dohexthewater:link/link_entity",
+      "input": "entity",
+      "output": "",
+      "text": "dohexthewater.page.links.link/link_entity"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:link/link_two_entities",
+      "anchor": "dohexthewater:link/link_two_entities",
+      "input": "entity, entity",
+      "output": "",
+      "text": "dohexthewater.page.links.link/link_two_entities"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:link/unlink",
+      "anchor": "dohexthewater:link/unlink",
+      "input": "number",
+      "output": "",
+      "text": "dohexthewater.page.links.link/unlink"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:link/get",
+      "anchor": "dohexthewater:link/get",
+      "input": "number",
+      "output": "entity",
+      "text": "dohexthewater.page.links.link/get"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:link/get_index",
+      "anchor": "dohexthewater:link/get_index",
+      "input": "entity",
+      "output": "number",
+      "text": "dohexthewater.page.links.link/get_index"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:link/num",
+      "anchor": "dohexthewater:link/num",
+      "input": "",
+      "output": "number",
+      "text": "dohexthewater.page.links.link/num"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:link/comm/send",
+      "anchor": "dohexthewater:link/comm/send",
+      "input": "number, any",
+      "output": "",
+      "text": "dohexthewater.page.links.link/comm/send"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:link/comm/read",
+      "anchor": "dohexthewater:link/comm/read",
+      "input": "",
+      "output": "any",
+      "text": "dohexthewater.page.links.link/comm/read"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:link/comm/num",
+      "anchor": "dohexthewater:link/comm/num",
+      "input": "",
+      "output": "number",
+      "text": "dohexthewater.page.links.link/comm/num"
+    }
+  ]
+}

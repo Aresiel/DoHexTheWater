@@ -1,0 +1,50 @@
+{
+  "name": "dohexthewater.entry.dohexthewater_basics",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:wooden_shovel",
+  "sortnum": 0.5,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:current_tick",
+      "anchor": "dohexthewater:current_tick",
+      "input": "",
+      "output": "number",
+      "text": "dohexthewater.page.dohexthewater_basics.current_tick"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:remaining_evals",
+      "anchor": "dohexthewater:remaining_evals",
+      "input": "",
+      "output": "number",
+      "text": "dohexthewater.page.dohexthewater_basics.remaining_evals"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:breath",
+      "anchor": "dohexthewater:breath",
+      "input": "entity",
+      "output": "num",
+      "text": "dohexthewater.page.dohexthewater_basics.breath"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:health",
+      "anchor": "dohexthewater:health",
+      "input": "entity",
+      "output": "num",
+      "text": "dohexthewater.page.dohexthewater_basics.health"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:light_level",
+      "anchor": "dohexthewater:light_level",
+      "input": "vec",
+      "output": "num",
+      "text": "dohexthewater.page.dohexthewater_basics.light_level"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "dohexthewater.entry.type_comparison",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:lectern",
+  "sortnum": 5.5,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:compare/blocks",
+      "anchor": "dohexthewater:compare/blocks",
+      "input": "vec, vec",
+      "output": "number",
+      "text": "dohexthewater.page.type_comparison.compare/blocks"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:compare/entities",
+      "anchor": "dohexthewater:compare/entities",
+      "input": "entity, entity",
+      "output": "number",
+      "text": "dohexthewater.page.type_comparison.compare/entities"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "dohexthewater:compare/types",
+      "anchor": "dohexthewater:compare/types",
+      "input": "any, any",
+      "output": "number",
+      "text": "dohexthewater.page.type_comparison.compare/types"
+    }
+  ]
+}
