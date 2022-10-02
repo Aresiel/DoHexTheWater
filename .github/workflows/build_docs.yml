@@ -2,7 +2,7 @@ name: Build the Python doc-gen
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build_docs:
