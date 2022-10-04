@@ -77,7 +77,6 @@ object OpTheovore : SpellOperator {
                 Vec2(0f, -1f)
             else
                 Vec2(1f, 0f)
-
         }
 
         private fun Vec2toVec3(position: Vec2, plane: Vec3): Vec3 {
