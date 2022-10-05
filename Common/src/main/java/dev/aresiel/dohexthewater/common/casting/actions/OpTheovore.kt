@@ -4,89 +4,53 @@ import at.petrak.hexcasting.api.spell.*
 import at.petrak.hexcasting.api.spell.casting.CastingContext
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.utils.asTranslatedComponent
+import com.mojang.blaze3d.platform.ScreenManager.clamp
 import net.minecraft.world.phys.Vec2
 import net.minecraft.world.phys.Vec3
+import java.lang.Integer.min
 import kotlin.math.roundToInt
+import kotlin.math.sqrt
 
-object OpTheovore : SpellOperator {
-    override val argc = 4
-    override val isGreat = true
+object OpTheovore : ConstManaOperator {
+    override val argc = 3
 
-    override fun execute(
-        args: List<SpellDatum<*>>, ctx: CastingContext
-    ): Triple<RenderedSpell, Int, List<ParticleSpray>> {
-        val patternList = args.getChecked<SpellList>(0, argc)
+    override fun execute(args: List<SpellDatum<*>>, ctx: CastingContext): List<SpellDatum<*>> {
+        val centrePosition = args.getChecked<Vec3>(0, argc)
         val plane = args.getChecked<Vec3>(1, argc)
-        val amountOfSteps = args.getChecked<Double>(2, argc).roundToInt()
-        val position = args.getChecked<Vec3>(3, argc)
-
-        ctx.assertVecInRange(position)
-
-        if (plane != Vec3(0.0, 0.0, 1.0) && plane != Vec3(0.0, 1.0, 0.0) && plane != Vec3(1.0, 0.0, 0.0)) {
-            throw MishapInvalidIota(args[1], 0, "dohexthewater.mishap.not_plane_vector".asTranslatedComponent())
-        }
+        val index = args.getChecked<Double>(2, argc).roundToInt()
 
 
-        return Triple(Spell(ctx, patternList, amountOfSteps, position, plane), 10 * amountOfSteps, listOf())
+
+        ctx.assertVecInRange(centrePosition)
+
+        if (plane != Vec3(0.0, 0.0, 1.0) && plane != Vec3(0.0, 1.0, 0.0) && plane != Vec3(1.0, 0.0, 0.0))
+            throw MishapInvalidIota(args[1], 1, "dohexthewater.mishap.not_plane_vector".asTranslatedComponent())
+
+        if (index < 0)
+            throw MishapInvalidIota(args[1], 0, "dohexthewater.mishap.invalid_index".asTranslatedComponent())
+
+        val worldPos = centrePosition.add(Vec2toVec3(pointOnSpiral(index), plane))
+        return spellListOf(worldPos)
     }
 
-    private data class Spell(
-        val ctx: CastingContext, val patternList: SpellList, var stepsRemaining: Int, val center_position: Vec3, val plane: Vec3
-    ) : RenderedSpell {
-        override fun cast(ctx: CastingContext) {
+    private fun pointOnSpiral(index: Int): Vec2 { // Credits to ForgottenHorror#8370 (571750094953775104) from the Petrak@'s Mods Discord for the algorithm
+        val ring = ((sqrt(index.toDouble()))/2).roundToInt()
+        val sideLength = 2*ring
+        val offset = index - (2*ring-1)*(2*ring-1) + 1
+        val startX = ring
+        val startY = 1 - ring
+        val offsetX = clamp(offset - 3*sideLength, 0, sideLength) - clamp(offset - sideLength, 0, sideLength)
+        val offsetY = min(offset - 1, sideLength - 1) - clamp(offset - 2*sideLength, 0, sideLength)
 
-            var position = Vec2(0f, 0f)
-            val positions = mutableListOf<Vec2>(position)
-            var direction = Vec2(1f, 0f)
-            var currentStepsAmount = 1
+        return Vec2((startX + offsetX).toFloat(), (startY + offsetY).toFloat())
+    }
 
-            while (stepsRemaining > 0) { // Build the positions array
-                for (step in 1..currentStepsAmount) { // Walk current_width steps once
-                    position = position.add(direction) // Add direction to position, aka, walk in direction
-                    stepsRemaining -= 1 // 1 less step remaining
-                    positions.add(position) // Store new position
-                    if(stepsRemaining <= 0) break
-                }
-
-                direction = turn(direction) // Turn 90 deg
-
-                for (step in 1..currentStepsAmount) { // Walk current_width steps once
-                    position = position.add(direction) // Add direction to position, aka, walk in direction
-                    stepsRemaining -= 1 // 1 less step remaining
-                    positions.add(position) // Store new position
-                    if(stepsRemaining <= 0) break
-                }
-
-                direction = turn(direction) // Turn 90 deg
-
-                currentStepsAmount += 1 // Increase the amount of steps to walk by 1
-            }
-
-            for (vector in positions) {
-                val worldPos = center_position.add(Vec2toVec3(vector, plane))
-                print("(" + worldPos.x + ", " + worldPos.y + ", " + worldPos.z + "), ")
-            }
-        }
-
-        private fun turn(dir: Vec2): Vec2 {
-            return if (dir.x == 1f && dir.y == 0f)
-                Vec2(0f, 1f)
-            else if (dir.x == 0f && dir.y == 1f)
-                Vec2(-1f, 0f)
-            else if (dir.x == -1f && dir.y == 0f)
-                Vec2(0f, -1f)
-            else
-                Vec2(1f, 0f)
-        }
-
-        private fun Vec2toVec3(position: Vec2, plane: Vec3): Vec3 {
-            return if(plane.x == 1.0)
-                Vec3(0.0, position.x.toDouble(), position.y.toDouble())
-            else if (plane.y == 1.0)
-                Vec3(position.x.toDouble(), 0.0, position.y.toDouble())
-            else
-                Vec3(position.x.toDouble(), position.y.toDouble(), 0.0)
-        }
-
+    private fun Vec2toVec3(position: Vec2, plane: Vec3): Vec3 {
+        return if(plane.x == 1.0)
+            Vec3(0.0, position.x.toDouble(), position.y.toDouble())
+        else if (plane.y == 1.0)
+            Vec3(position.x.toDouble(), 0.0, position.y.toDouble())
+        else
+            Vec3(position.x.toDouble(), position.y.toDouble(), 0.0)
     }
 }

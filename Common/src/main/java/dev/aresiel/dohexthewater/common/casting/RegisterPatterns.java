@@ -4,10 +4,7 @@ import at.petrak.hexcasting.api.PatternRegistry;
 import at.petrak.hexcasting.api.spell.math.HexDir;
 import at.petrak.hexcasting.api.spell.math.HexPattern;
 import dev.aresiel.dohexthewater.api.DoHexTheWaterAPI;
-import dev.aresiel.dohexthewater.common.casting.actions.OpListToVector;
-import dev.aresiel.dohexthewater.common.casting.actions.OpNormalizeVector;
-import dev.aresiel.dohexthewater.common.casting.actions.OpTheovore;
-import dev.aresiel.dohexthewater.common.casting.actions.OpVectorToList;
+import dev.aresiel.dohexthewater.common.casting.actions.*;
 
 public class RegisterPatterns {
     public static void registerPatterns() {
@@ -22,9 +19,15 @@ public class RegisterPatterns {
             PatternRegistry.mapPattern(HexPattern.fromAngles("qwqqqwq", HexDir.NORTH_WEST),
                     DoHexTheWaterAPI.modLoc("list_to_vector"),
                     OpListToVector.INSTANCE);
-            PatternRegistry.mapPattern(HexPattern.fromAngles(/*"qqedwewwwwewdeqqeaaqawewqwawwwwwwwawqwaqddadadadaddqewa"*/ "dwd", HexDir.NORTH_WEST),
+            PatternRegistry.mapPattern(HexPattern.fromAngles("aqqqqwqqwqwqwqwqw", HexDir.SOUTH_WEST),
                     DoHexTheWaterAPI.modLoc("theovore"),
-                    OpTheovore.INSTANCE, true);
+                    OpTheovore.INSTANCE);
+            PatternRegistry.mapPattern(HexPattern.fromAngles("dawdwaddwwwaadwawda", HexDir.NORTH_EAST),
+                    DoHexTheWaterAPI.modLoc("range"),
+                    OpRange.INSTANCE);
+            PatternRegistry.mapPattern(HexPattern.fromAngles("waawwddaadd", HexDir.NORTH_EAST),
+                    DoHexTheWaterAPI.modLoc("positive_vector"),
+                    OpPositiveVector.INSTANCE);
         } catch (PatternRegistry.RegisterPatternException e) {
             e.printStackTrace();
         }
