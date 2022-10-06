@@ -28,6 +28,12 @@ public class RegisterPatterns {
             PatternRegistry.mapPattern(HexPattern.fromAngles("waawwddaadd", HexDir.NORTH_EAST),
                     DoHexTheWaterAPI.modLoc("positive_vector"),
                     OpPositiveVector.INSTANCE);
+            PatternRegistry.mapPattern(HexPattern.fromAngles("aqdeedqwawaad", HexDir.SOUTH_WEST),
+                    DoHexTheWaterAPI.modLoc("halt_if_zero"),
+                    OpHaltIfZero.INSTANCE);
+            PatternRegistry.mapPattern(HexPattern.fromAngles("qeee", HexDir.NORTH_WEST),
+                    DoHexTheWaterAPI.modLoc("rand_int"),
+                    OpRandInt.INSTANCE);
         } catch (PatternRegistry.RegisterPatternException e) {
             e.printStackTrace();
         }

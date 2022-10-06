@@ -4,9 +4,12 @@
   "hexcasting.spell.dohexthewater:list_to_vector": "Constructing Purification",
   "hexcasting.spell.dohexthewater:theovore": "Serpent's Exaltation",
   "hexcasting.spell.dohexthewater:range": "Ruler's Distillation",
+  "hexcasting.spell.dohexthewater:halt_if_zero": "Erebus' Gambit",
+  "hexcasting.spell.dohexthewater:rand_int": "Entropy Distillation",
 
   "dohexthewater.mishap.not_vectory_list": "a list containing exactly three numbers",
   "dohexthewater.mishap.stop_smaller_than_start": "range stop to not be smaller than start",
   "dohexthewater.mishap.not_plane_vector": "a vector matching (1  ,0,0), (0,1,0) or (0,0,1)",
-  "dohexthewater.mishap.invalid_index": "a non-negative integer"
+  "dohexthewater.mishap.invalid_index": "a non-negative integer",
+  "dohexthewater.mishap.greater_lower_bound": "greater upper bound than lower bound"
 }
