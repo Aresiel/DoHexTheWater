@@ -26,7 +26,7 @@ public class RegisterPatterns {
                     DoHexTheWaterAPI.modLoc("range"),
                     OpRange.INSTANCE);
             PatternRegistry.mapPattern(HexPattern.fromAngles("waawwddaadd", HexDir.NORTH_EAST),
-                    DoHexTheWaterAPI.modLoc("positive_vector"),
+                    DoHexTheWaterAPI.modLoc("positivize_vector"),
                     OpPositiveVector.INSTANCE);
             PatternRegistry.mapPattern(HexPattern.fromAngles("aqdeedqwawaad", HexDir.SOUTH_WEST),
                     DoHexTheWaterAPI.modLoc("halt_if_zero"),
